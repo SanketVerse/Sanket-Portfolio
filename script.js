@@ -6,99 +6,111 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ============================================
-    // CUSTOM CURSOR
+    // GLOBAL VARIABLES
     // ============================================
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    cursor.style.cssText = `
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #ff006e;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.1s ease;
-        mix-blend-mode: difference;
-    `;
-    document.body.appendChild(cursor);
-
-    const cursorTrail = document.createElement('div');
-    cursorTrail.className = 'cursor-trail';
-    cursorTrail.style.cssText = `
-        position: fixed;
-        width: 8px;
-        height: 8px;
-        background: linear-gradient(135deg, #ff006e, #00f5ff);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9998;
-        transition: all 0.15s ease;
-        box-shadow: 0 0 20px rgba(255, 0, 110, 0.6);
-    `;
-    document.body.appendChild(cursorTrail);
-
     let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let trailX = 0, trailY = 0;
 
+    // Track mouse position globally
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
 
-    function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        trailX += (mouseX - trailX) * 0.1;
-        trailY += (mouseY - trailY) * 0.1;
+    // ============================================
+    // CUSTOM CURSOR (Desktop Only)
+    // ============================================
+    // Detect if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        cursorTrail.style.left = trailX + 'px';
-        cursorTrail.style.top = trailY + 'px';
+    if (!isMobile) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.style.cssText = `
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ef4444;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        `;
+        document.body.appendChild(cursor);
 
-        requestAnimationFrame(animateCursor);
+        const cursorTrail = document.createElement('div');
+        cursorTrail.className = 'cursor-trail';
+        cursorTrail.style.cssText = `
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.15s ease;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+        `;
+        document.body.appendChild(cursorTrail);
+
+        let cursorX = 0, cursorY = 0;
+        let trailX = 0, trailY = 0;
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            cursorTrail.style.left = trailX + 'px';
+            cursorTrail.style.top = trailY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effects
+        const interactiveElements = document.querySelectorAll('a, button, .glass-card, .btn');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursor.style.borderColor = '#f87171';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.borderColor = '#ef4444';
+            });
+        });
     }
-    animateCursor();
-
-    // Cursor hover effects
-    const interactiveElements = document.querySelectorAll('a, button, .glass-card, .btn');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(1.5)';
-            cursor.style.borderColor = '#00f5ff';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.borderColor = '#ff006e';
-        });
-    });
 
     // ============================================
-    // 3D CARD TILT EFFECT
+    // 3D CARD TILT EFFECT (Desktop Only)
     // ============================================
-    const cards = document.querySelectorAll('.glass-card');
+    if (!isMobile) {
+        const cards = document.querySelectorAll('.glass-card');
 
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
         });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-        });
-    });
+    }
 
     // ============================================
     // NAVIGATION
@@ -269,10 +281,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         getRandomColor() {
             const colors = [
-                'rgba(255, 0, 110, 0.6)',
-                'rgba(0, 245, 255, 0.6)',
-                'rgba(0, 255, 159, 0.6)',
-                'rgba(123, 44, 191, 0.6)'
+                'rgba(59, 130, 246, 0.5)',
+                'rgba(6, 182, 212, 0.5)',
+                'rgba(20, 184, 166, 0.5)',
+                'rgba(37, 99, 235, 0.5)'
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
@@ -319,7 +331,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const particles = [];
-    for (let i = 0; i < 50; i++) {
+    const particleCount = isMobile ? 20 : 50; // Reduce particles on mobile for better performance
+    for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
     }
 
@@ -342,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #ff006e, #00f5ff);
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
         color: white;
         border: none;
         font-size: 24px;
@@ -351,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
         visibility: hidden;
         transition: all 0.3s ease;
         z-index: 1000;
-        box-shadow: 0 0 30px rgba(255, 0, 110, 0.6);
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
     `;
     document.body.appendChild(scrollToTopBtn);
 
@@ -371,32 +384,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     scrollToTopBtn.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-5px) scale(1.1)';
-        this.style.boxShadow = '0 0 50px rgba(0, 245, 255, 0.8)';
+        this.style.boxShadow = '0 0 50px rgba(6, 182, 212, 0.7)';
     });
 
     scrollToTopBtn.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 0 30px rgba(255, 0, 110, 0.6)';
+        this.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.5)';
     });
 
     // ============================================
-    // PARALLAX EFFECT
+    // PARALLAX EFFECT (Desktop Only)
     // ============================================
-    const hero = document.querySelector('.hero');
+    if (!isMobile) {
+        const hero = document.querySelector('.hero');
 
-    window.addEventListener('scroll', function () {
-        const scrolled = window.scrollY;
-        if (hero && scrolled < window.innerHeight) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            hero.style.opacity = 1 - (scrolled / window.innerHeight);
-        }
-    });
+        window.addEventListener('scroll', function () {
+            const scrolled = window.scrollY;
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+    }
 
     // ============================================
     // CONSOLE EASTER EGG
     // ============================================
-    console.log('%c👋 Hello, curious developer!', 'color: #ff006e; font-size: 20px; font-weight: bold;');
-    console.log('%cInterested in the code? Check out the source!', 'color: #00f5ff; font-size: 14px;');
-    console.log('%cBuilt with ❤️ by Sanket Saraf', 'color: #00ff9f; font-size: 12px;');
+    console.log('%c👋 Hello, curious developer!', 'color: #3b82f6; font-size: 20px; font-weight: bold;');
+    console.log('%cInterested in the code? Check out the source!', 'color: #06b6d4; font-size: 14px;');
+    console.log('%cBuilt with ❤️ by Sanket Saraf', 'color: #14b8a6; font-size: 12px;');
 
 });
