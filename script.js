@@ -1,5 +1,5 @@
 // ============================================
-// ADVANCED MODERN PORTFOLIO - INTERACTIVE FEATURES
+// MODERN PORTFOLIO - INTERACTIVE FEATURES
 // ============================================
 
 // Wait for DOM to be fully loaded
@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // CUSTOM CURSOR (Desktop Only)
     // ============================================
-    // Detect if device is mobile
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 
     if (!isMobile) {
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             position: fixed;
             width: 20px;
             height: 20px;
-            border: 2px solid #ef4444;
+            border: 2px solid #3b82f6;
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
@@ -44,12 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
             position: fixed;
             width: 8px;
             height: 8px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9998;
             transition: all 0.15s ease;
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
         `;
         document.body.appendChild(cursorTrail);
 
@@ -72,42 +71,15 @@ document.addEventListener('DOMContentLoaded', function () {
         animateCursor();
 
         // Cursor hover effects
-        const interactiveElements = document.querySelectorAll('a, button, .glass-card, .btn');
+        const interactiveElements = document.querySelectorAll('a, button, .glass-card, .btn, .project-card, .skill-card');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'scale(1.5)';
-                cursor.style.borderColor = '#f87171';
+                cursor.style.borderColor = '#06b6d4';
             });
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'scale(1)';
-                cursor.style.borderColor = '#ef4444';
-            });
-        });
-    }
-
-    // ============================================
-    // 3D CARD TILT EFFECT (Desktop Only)
-    // ============================================
-    if (!isMobile) {
-        const cards = document.querySelectorAll('.glass-card');
-
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+                cursor.style.borderColor = '#3b82f6';
             });
         });
     }
@@ -230,14 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
-
-                if (entry.target.classList.contains('skill-item')) {
-                    const progressBar = entry.target.querySelector('.skill-progress');
-                    const width = progressBar.getAttribute('data-width');
-                    progressBar.style.setProperty('--skill-width', width + '%');
-                    progressBar.classList.add('animate');
-                }
-
                 observer.unobserve(entry.target);
             }
         });
@@ -246,101 +210,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const glassCards = document.querySelectorAll('.glass-card');
     glassCards.forEach(card => observer.observe(card));
 
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => observer.observe(item));
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => observer.observe(card));
 
-    const skillItems = document.querySelectorAll('.skill-item');
-    skillItems.forEach(item => observer.observe(item));
-
-    // ============================================
-    // ENHANCED PARTICLE SYSTEM
-    // ============================================
-    const particleContainer = document.createElement('div');
-    particleContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-    `;
-    document.body.appendChild(particleContainer);
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * window.innerWidth;
-            this.y = Math.random() * window.innerHeight;
-            this.size = Math.random() * 3 + 1;
-            this.speedX = Math.random() * 2 - 1;
-            this.speedY = Math.random() * 2 - 1;
-            this.color = this.getRandomColor();
-            this.element = this.createElement();
-        }
-
-        getRandomColor() {
-            const colors = [
-                'rgba(59, 130, 246, 0.5)',
-                'rgba(6, 182, 212, 0.5)',
-                'rgba(20, 184, 166, 0.5)',
-                'rgba(37, 99, 235, 0.5)'
-            ];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-
-        createElement() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: absolute;
-                width: ${this.size}px;
-                height: ${this.size}px;
-                background: ${this.color};
-                border-radius: 50%;
-                left: ${this.x}px;
-                top: ${this.y}px;
-                box-shadow: 0 0 10px ${this.color};
-            `;
-            particleContainer.appendChild(particle);
-            return particle;
-        }
-
-        update(mouseX, mouseY) {
-            const dx = mouseX - this.x;
-            const dy = mouseY - this.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-                const force = (150 - distance) / 150;
-                this.speedX -= (dx / distance) * force * 0.5;
-                this.speedY -= (dy / distance) * force * 0.5;
-            }
-
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-            if (this.x < 0 || this.x > window.innerWidth) this.speedX *= -1;
-            if (this.y < 0 || this.y > window.innerHeight) this.speedY *= -1;
-
-            this.speedX *= 0.99;
-            this.speedY *= 0.99;
-
-            this.element.style.left = this.x + 'px';
-            this.element.style.top = this.y + 'px';
-        }
-    }
-
-    const particles = [];
-    const particleCount = isMobile ? 20 : 50; // Reduce particles on mobile for better performance
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    function animateParticles() {
-        particles.forEach(particle => particle.update(mouseX, mouseY));
-        requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach(card => observer.observe(card));
 
     // ============================================
     // SCROLL TO TOP BUTTON
@@ -364,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
         visibility: hidden;
         transition: all 0.3s ease;
         z-index: 1000;
-        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
     `;
     document.body.appendChild(scrollToTopBtn);
 
@@ -384,34 +258,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     scrollToTopBtn.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-5px) scale(1.1)';
-        this.style.boxShadow = '0 0 50px rgba(6, 182, 212, 0.7)';
+        this.style.boxShadow = '0 6px 30px rgba(6, 182, 212, 0.5)';
     });
 
     scrollToTopBtn.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.5)';
+        this.style.boxShadow = '0 4px 20px rgba(59, 130, 246, 0.3)';
     });
-
-    // ============================================
-    // PARALLAX EFFECT (Desktop Only)
-    // ============================================
-    if (!isMobile) {
-        const hero = document.querySelector('.hero');
-
-        window.addEventListener('scroll', function () {
-            const scrolled = window.scrollY;
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                hero.style.opacity = 1 - (scrolled / window.innerHeight);
-            }
-        });
-    }
 
     // ============================================
     // CONSOLE EASTER EGG
     // ============================================
     console.log('%c👋 Hello, curious developer!', 'color: #3b82f6; font-size: 20px; font-weight: bold;');
     console.log('%cInterested in the code? Check out the source!', 'color: #06b6d4; font-size: 14px;');
-    console.log('%cBuilt with ❤️ by Sanket Saraf', 'color: #14b8a6; font-size: 12px;');
+    console.log('%cBuilt with ❤️ by Sanket Saraf', 'color: #10b981; font-size: 12px;');
 
 });

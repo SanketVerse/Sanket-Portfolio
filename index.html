@@ -4,22 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Sanket Saraf - AI Engineer, Data Scientist & Full-Stack Developer. Passionate about building innovative AI-powered solutions and cutting-edge web applications.">
-    <meta name="keywords"
-        content="AI Engineer, Data Science, Full-Stack Developer, Machine Learning, Web Development, Sanket Saraf">
-    <meta name="author" content="Sanket Saraf">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Open Graph Meta Tags -->
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Sanket Saraf - AI Engineer, Data Scientist & Full-Stack Developer specializing in AI/ML, IoT, and web development. Building intelligent solutions with Python, React, and cutting-edge technologies.">
+    <meta name="keywords"
+        content="Sanket Saraf, AI Engineer, Data Science, Machine Learning, Full-Stack Developer, Python, React, IoT, Raspberry Pi, Web Development, Mumbai">
+    <meta name="author" content="Sanket Saraf">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3b82f6">
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
     <meta property="og:title" content="Sanket Saraf - AI Engineer & Full-Stack Developer">
     <meta property="og:description"
-        content="Passionate tech enthusiast specializing in AI, Data Science, and Full-Stack Development">
+        content="Building intelligent systems and beautiful experiences. Specializing in AI/ML, IoT, and full-stack development.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanketsaraf.com">
+    <meta property="og:image" content="https://sanketsaraf.com/assets/images/sanket-main.jpg">
 
-    <title>Sanket Saraf - AI Engineer & Full-Stack Developer</title>
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sanket Saraf - AI Engineer & Full-Stack Developer">
+    <meta name="twitter:description"
+        content="Building intelligent systems and beautiful experiences with AI/ML and full-stack development.">
+    <meta name="twitter:image" content="https://sanketsaraf.com/assets/images/sanket-main.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+    <title>Sanket Saraf - AI Engineer & Full-Stack Developer | Portfolio</title>
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" defer>
 </head>
 
 <body>
@@ -29,11 +55,9 @@
             <a href="#home" class="nav-logo">SS</a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#certificates" class="nav-link">Certificates</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-toggle" id="navToggle">
@@ -46,24 +70,203 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <img src="assets/images/hero-bg.png" alt="Futuristic AI Background" class="hero-bg-img">
+        <div class="hero-gradient-bg"></div>
+
+        <!-- Floating Stickers -->
+        <div class="floating-stickers">
+            <div class="sticker sticker-1">
+                <span class="sticker-emoji">💻</span>
+                <span class="sticker-text">Coding</span>
+            </div>
+            <div class="sticker sticker-2">
+                <span class="sticker-emoji">🤖</span>
+                <span class="sticker-text">AI/ML</span>
+            </div>
+            <div class="sticker sticker-3">
+                <span class="sticker-emoji">⚡</span>
+                <span class="sticker-text">Fast</span>
+            </div>
+            <div class="sticker sticker-4">
+                <span class="sticker-emoji">🎨</span>
+                <span class="sticker-text">Design</span>
+            </div>
+            <div class="sticker sticker-5">
+                <span class="sticker-emoji">🚀</span>
+                <span class="sticker-text">Launch</span>
+            </div>
+            <div class="sticker sticker-6">
+                <span class="sticker-emoji">☕</span>
+                <span class="sticker-text">Coffee</span>
+            </div>
+        </div>
+
         <div class="container">
             <div class="hero-content">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-name">Sanket Saraf</h1>
+                <div class="hero-badge">Available for opportunities</div>
+                <h1 class="hero-name">
+                    Hi, I'm <span class="name-highlight">Sanket Saraf</span>
+                </h1>
                 <div class="hero-title">
                     <span id="typedText"></span>
                     <span class="typing-cursor"></span>
                 </div>
                 <p class="hero-description">
-                    A curious and creative tech enthusiast with a passion for problem-solving.
-                    I craft innovative AI-powered solutions and build cutting-edge applications
-                    that bridge technology with real-world impact.
+                    I build intelligent systems and beautiful experiences. From AI-powered solutions
+                    to full-stack applications, I turn complex problems into elegant code.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#about" class="btn btn-outline">Learn More</a>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
                 </div>
+                <div class="hero-buttons">
+                    <a href="#work" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Selected Work Section -->
+    <section class="selected-work-section" id="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title-large">Featured <span class="gradient-text-custom">Projects</span></h2>
+                <p class="section-subtitle">Showcasing my latest work in AI, web development, and IoT</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: Synapse -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h4 class="project-title"><span class="highlight purple">Synapse</span> - AI Therapist</h4>
+                            <div class="tags">
+                                <span class="tag">AI/ML</span>
+                                <span class="tag">Mental Health</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">NLP</span>
+                            </div>
+                        </div>
+                        <div class="card-visual-container purple-bg">
+                            <div class="reveal-text-layer">
+                                <p class="reveal-description">An intelligent AI therapist that helps detect and reduce
+                                    anxiety and depression through conversational therapy and mental health analysis.
+                                </p>
+                                <div class="view-btn">Click to view <i class="fa-solid fa-arrow-right"></i></div>
+                            </div>
+                            <div class="sliding-image-layer">
+                                <div
+                                    style="width: 100%; height: 100%; background: linear-gradient(135deg, #8b5cf6, #a78bfa); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                                    🧠
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2: Mentor AI -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h4 class="project-title"><span class="highlight blue">Mentor AI</span> - Smart Teacher</h4>
+                            <div class="tags">
+                                <span class="tag">Education</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">LLM</span>
+                                <span class="tag">React</span>
+                            </div>
+                        </div>
+                        <div class="card-visual-container blue-bg">
+                            <div class="reveal-text-layer">
+                                <p class="reveal-description">AI-based teaching platform used by both students and
+                                    teachers for personalized learning experiences and intelligent tutoring.</p>
+                                <div class="view-btn">Click to view <i class="fa-solid fa-arrow-right"></i></div>
+                            </div>
+                            <div class="sliding-image-layer">
+                                <div
+                                    style="width: 100%; height: 100%; background: linear-gradient(135deg, #3b82f6, #60a5fa); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                                    👨‍🏫
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3: Max -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h4 class="project-title"><span class="highlight green">Max</span> - Military AI Assistant
+                            </h4>
+                            <div class="tags">
+                                <span class="tag">IoT</span>
+                                <span class="tag">Voice AI</span>
+                                <span class="tag">Raspberry Pi</span>
+                                <span class="tag">Security</span>
+                            </div>
+                        </div>
+                        <div class="card-visual-container green-bg">
+                            <div class="reveal-text-layer">
+                                <p class="reveal-description">Military-grade AI voice assistant IoT project providing
+                                    advanced assistance and security features for critical operations.</p>
+                                <div class="view-btn">Click to view <i class="fa-solid fa-arrow-right"></i></div>
+                            </div>
+                            <div class="sliding-image-layer">
+                                <div
+                                    style="width: 100%; height: 100%; background: linear-gradient(135deg, #10b981, #34d399); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                                    🎖️
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 4: ScrappyDo -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="project-card">
+                        <div class="card-header">
+                            <h4 class="project-title"><span class="highlight cyan">ScrappyDo</span> - Web Scraper</h4>
+                            <div class="tags">
+                                <span class="tag">Web Scraping</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Automation</span>
+                                <span class="tag">API</span>
+                            </div>
+                        </div>
+                        <div class="card-visual-container cyan-bg">
+                            <div class="reveal-text-layer">
+                                <p class="reveal-description">A powerful and easy-to-use web scraper that handles all
+                                    your data extraction needs with simplicity and efficiency.</p>
+                                <div class="view-btn">Click to view <i class="fa-solid fa-arrow-right"></i></div>
+                            </div>
+                            <div class="sliding-image-layer">
+                                <div
+                                    style="width: 100%; height: 100%; background: linear-gradient(135deg, #06b6d4, #22d3ee); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                                    🕷️
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -71,185 +274,97 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
+            <div class="section-header">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title-large">Building the <span class="gradient-text-custom">Future</span></h2>
+                <p class="section-subtitle">Passionate about creating intelligent solutions that make a difference</p>
             </div>
-            <div class="glass-card">
-                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-primary);">
-                    I'm a <strong class="gradient-text">curious and creative tech enthusiast</strong> with a knack for
-                    problem-solving.
-                    My journey in technology is driven by an insatiable desire to learn, explore, and turn innovative
-                    ideas into reality.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-primary); margin-top: 1.5rem;">
-                    Currently pursuing my <strong>BTech in Artificial Intelligence and Data Science</strong> at KJ
-                    Somaiya Institute of Technology,
-                    I specialize in building projects that blend technology with real-world applications. From
-                    developing
-                    <strong class="gradient-text">IoT solutions with Raspberry Pi</strong> to creating
-                    <strong class="gradient-text">AI-powered educational tools</strong>, I thrive on challenges that
-                    push the boundaries of innovation.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-primary); margin-top: 1.5rem;">
-                    Beyond my technical pursuits, I have a creative side that shines through in
-                    <strong>content creation, travel planning, and idea generation</strong>. Whether it's coding a
-                    complex algorithm,
-                    presenting research at international conferences, or volunteering for cyber security initiatives,
-                    I'm always eager to learn, explore, and make a meaningful impact.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-primary); margin-top: 1.5rem;">
-                    My technical expertise spans <strong class="gradient-text">Programming & Networking, IoT & Hardware,
-                        Generative AI Development, Project Management,</strong> and <strong
-                        class="gradient-text">Critical Thinking</strong>.
-                    I'm proficient in multiple programming languages including Python, Java, C++, JavaScript, and modern
-                    frameworks like ReactJS.
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Education Section -->
-    <section class="section" id="education">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <h3>BTech in Artificial Intelligence and Data Science</h3>
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">KJ Somaiya Institute Of
-                            Technology</h4>
-                        <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 September 2024 - Present | 📍
-                            Mumbai, India</p>
-                        <p>Pursuing advanced studies in AI and Data Science, focusing on machine learning, deep
-                            learning,
-                            natural language processing, and data analytics. Actively engaged in research projects and
-                            cutting-edge AI development initiatives.</p>
+            <div class="about-content">
+                <div class="about-text-col">
+                    <div class="location-capsule">
+                        <span class="location-text">📍 Mumbai, India</span>
+                        <div class="location-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=100&h=100&fit=crop');">
+                        </div>
                     </div>
+
+                    <h3 class="about-name">Hey there! 👋</h3>
+
+                    <p class="about-desc">
+                        I'm a tech enthusiast who loves turning <span class="highlight-blue">complex problems into
+                            elegant solutions</span>.
+                        Currently pursuing BTech in AI and Data Science, I spend my days building intelligent systems
+                        and
+                        beautiful web experiences.
+                    </p>
+
+                    <p class="about-desc">
+                        From developing AI-powered educational platforms to creating IoT solutions with Raspberry Pi,
+                        I thrive on projects that push the boundaries of what's possible with technology.
+                    </p>
+
+                    <h3 class="about-sub-heading">What drives me</h3>
+
+                    <p class="about-desc">
+                        When I'm not coding, you'll find me exploring new technologies, contributing to open-source
+                        projects,
+                        or presenting research at international conferences. I believe in continuous learning and
+                        sharing
+                        knowledge with the community.
+                    </p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <h3>Diploma in Computer Engineering</h3>
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">Guru Gobind Singh Polytechnic
-                        </h4>
-                        <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 June 2021 - July 2024 | 📍
-                            Nashik, India</p>
-                        <p>Built a strong foundation in computer science fundamentals, programming, web development,
-                            and software engineering. Completed multiple projects and participated in state-level
-                            competitions,
-                            earning recognition for technical excellence.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <h3>Matriculation (10th Grade)</h3>
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">Chavara English Medium School
-                        </h4>
-                        <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2007 - 2020 | 📍 Dhule, India
-                        </p>
-                        <p>Completed matriculation with <strong>78%</strong>, demonstrating consistent academic
-                            performance.
-                            During these formative years, discovered a deep passion for computers and hardware devices,
-                            sparking an innovative mindset that would shape future career choices. This early
-                            fascination
-                            with technology laid the foundation for pursuing advanced studies in computer engineering.
-                        </p>
-                    </div>
+
+                <div class="about-image-col">
+                    <img src="assets/images/sanket-main.jpg" alt="Sanket Saraf" class="my-photo"
+                        style="border: 16px solid #f9f9f9; border-radius: 30px;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="section" id="experience">
+    <!-- Photo Gallery Section -->
+    <section class="section photo-gallery-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Professional Experience</h2>
+            <div class="section-header">
+                <span class="section-label">Gallery</span>
+                <h2 class="section-title-large">Life in <span class="gradient-text-custom">Frames</span></h2>
+                <p class="section-subtitle">Moments captured along my journey</p>
             </div>
-            <div class="grid grid-1" style="gap: 2rem;">
-                <div class="glass-card">
-                    <h3>Generative AI Developer Intern</h3>
-                    <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">Capble.in - Saksham Initiative
-                    </h4>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 April 2025 | 📍 Mumbai, India
-                    </p>
-                    <p style="line-height: 1.8;">
-                        Completed an intensive <strong class="gradient-text">Generative AI internship focused on Agentic
-                            AI</strong>
-                        under the prestigious Saksham Initiative. Gained hands-on experience in building intelligent AI
-                        agents,
-                        implementing agentic workflows, and developing real-world AI applications. Worked with
-                        cutting-edge
-                        Gen AI technologies and collaborated with industry mentors to create impactful AI-driven
-                        solutions.
-                    </p>
-                    <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Developed agentic AI workflows and intelligent automation systems</li>
-                        <li>Built real-world Generative AI applications using modern frameworks</li>
-                        <li>Collaborated with mentors and peers on innovative AI projects</li>
-                        <li>Gained expertise in prompt engineering and LLM integration</li>
-                    </ul>
+            <div class="photo-gallery-scroll">
+                <!-- Photo 1 - Beach/Rocks -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-1.jpg" alt="Sanket at the beach">
                 </div>
 
-                <div class="glass-card">
-                    <h3>Freelance Project Developer</h3>
-                    <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">Fiverr</h4>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2023 - 2025 | 📍 Mumbai, India
-                    </p>
-                    <p style="line-height: 1.8;">
-                        Delivering high-quality freelance development services to clients worldwide. Specializing in
-                        <strong class="gradient-text">web application development, AI integration, and custom software
-                            solutions</strong>.
-                        Successfully completed numerous projects ranging from e-commerce platforms to AI-powered tools,
-                        maintaining a 5-star rating through exceptional code quality and client communication.
-                    </p>
-                    <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Developed full-stack web applications using modern frameworks</li>
-                        <li>Implemented AI/ML solutions for business automation</li>
-                        <li>Provided technical consulting and code optimization services</li>
-                    </ul>
+                <!-- Photo 2 - Striped Shirt -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-2.jpg" alt="Sanket portrait">
                 </div>
 
-                <div class="glass-card">
-                    <h3>Cyber Security Volunteer</h3>
-                    <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">Cyber Cell Nashik Police</h4>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2019 - 2020 | 📍 Nashik, India
-                    </p>
-                    <p style="line-height: 1.8;">
-                        Contributed to <strong class="gradient-text">cyber security awareness and digital safety
-                            initiatives</strong>
-                        in collaboration with Nashik Police Department. Assisted in educating citizens about online
-                        threats,
-                        cyber fraud prevention, and digital literacy. Participated in community outreach programs and
-                        helped investigate cyber crime cases.
-                    </p>
-                    <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Conducted cyber security awareness workshops</li>
-                        <li>Assisted in digital forensics and investigation support</li>
-                        <li>Educated community members on online safety practices</li>
-                    </ul>
+                <!-- Photo 3 - City View -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-3.jpg" alt="Sanket in the city">
                 </div>
 
-                <div class="glass-card">
-                    <h3>Intern for Web App Development</h3>
-                    <h4 style="color: var(--color-highlight); margin-bottom: 0.5rem;">R3 Systems Pvt. Ltd.</h4>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2023 | 📍 Nashik, India</p>
-                    <p style="line-height: 1.8;">
-                        Gained hands-on experience in <strong class="gradient-text">professional web application
-                            development</strong>
-                        and software engineering practices. Worked on real-world projects using modern web technologies,
-                        collaborated with senior developers, and learned industry-standard development workflows and
-                        best practices.
-                    </p>
-                    <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Developed responsive web applications using React and Node.js</li>
-                        <li>Collaborated in agile development environment</li>
-                        <li>Implemented RESTful APIs and database integration</li>
-                    </ul>
+                <!-- Photo 4 - Beach Sitting -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-4.jpg" alt="Sanket at the beach">
+                </div>
+
+                <!-- Photo 5 - Conference Presentation -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-5.jpg" alt="Sanket presenting at conference">
+                </div>
+
+                <!-- Photo 6 - Jio 5G Event -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-6.jpg" alt="Sanket at Jio TRUE 5G event">
+                </div>
+
+                <!-- Photo 7 - Team Project -->
+                <div class="gallery-photo-card">
+                    <img src="assets/images/gallery-7.jpg" alt="Sanket with team">
                 </div>
             </div>
         </div>
@@ -258,174 +373,76 @@
     <!-- Skills Section -->
     <section class="section" id="skills">
         <div class="container">
-            <div class="section-title">
-                <h2>Skills & Expertise</h2>
+            <div class="section-header">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title-large">Tech <span class="gradient-text-custom">Stack</span></h2>
+                <p class="section-subtitle">Technologies and tools I work with to bring ideas to life</p>
             </div>
 
-            <div class="grid grid-2" style="gap: 2rem; margin-bottom: 3rem;">
-                <div class="glass-card">
-                    <h3 style="margin-bottom: 1.5rem;">Technical Skills</h3>
-
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Programming & Networking</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90"></div>
-                        </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                            alt="Python">
                     </div>
-
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">IoT and Hardware</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Generative AI Developer</span>
-                            <span class="skill-percentage">88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="88"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Project Management</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Critical Thinking</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90"></div>
-                        </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Python Development</h4>
+                        <p class="skill-desc">Django, Flask, FastAPI, Data Science, Machine Learning</p>
                     </div>
                 </div>
 
-                <div class="glass-card">
-                    <h3 style="margin-bottom: 1.5rem;">Technical Competencies</h3>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.75rem;">Programming</h4>
-                        <p style="color: var(--color-text-secondary);">Python, Java, C++, JavaScript, ReactJS, CSS, HTML
-                        </p>
+                <div class="skill-card">
+                    <div class="skill-icon-box" style="background-color: var(--bg-blue);">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                            alt="JavaScript">
                     </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.75rem;">Tools</h4>
-                        <p style="color: var(--color-text-secondary);">Streamlit, LangChain, GitHub</p>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.75rem;">Networking</h4>
-                        <p style="color: var(--color-text-secondary);">Wireshark, Metasploit, Netcat</p>
-                    </div>
-
-                    <div>
-                        <h4 style="color: var(--color-highlight); margin-bottom: 0.75rem;">OS Handling</h4>
-                        <p style="color: var(--color-text-secondary);">Windows, MacOS, Kali Linux, Linux</p>
+                    <div class="skill-info">
+                        <h4 class="skill-name">JavaScript Ecosystem</h4>
+                        <p class="skill-desc">React, Node.js, Express, TypeScript, Next.js</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Languages -->
-            <div class="glass-card">
-                <h3 style="margin-bottom: 1.5rem; text-align: center;">Languages</h3>
-                <div class="grid grid-4">
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--color-white);">English</h4>
-                        <p style="color: var(--color-highlight); font-size: 1.5rem; margin-top: 0.5rem;">●●●●●</p>
-                        <p style="color: var(--color-text-muted); font-size: 0.875rem;">Fluent</p>
+                <div class="skill-card">
+                    <div class="skill-icon-box" style="background-color: var(--bg-green);">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                            alt="MongoDB">
                     </div>
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--color-white);">Hindi</h4>
-                        <p style="color: var(--color-highlight); font-size: 1.5rem; margin-top: 0.5rem;">●●●●●</p>
-                        <p style="color: var(--color-text-muted); font-size: 0.875rem;">Fluent</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--color-white);">Marathi</h4>
-                        <p style="color: var(--color-highlight); font-size: 1.5rem; margin-top: 0.5rem;">●●●●●</p>
-                        <p style="color: var(--color-text-muted); font-size: 0.875rem;">Fluent</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--color-white);">Gujarati</h4>
-                        <p style="color: var(--color-highlight); font-size: 1.5rem; margin-top: 0.5rem;">●●○○○</p>
-                        <p style="color: var(--color-text-muted); font-size: 0.875rem;">Intermediate</p>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Databases</h4>
+                        <p class="skill-desc">MongoDB, PostgreSQL, MySQL, Redis</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Certificates Section -->
-    <section class="section" id="certificates">
-        <div class="container">
-            <div class="section-title">
-                <h2>Certificates & Achievements</h2>
-            </div>
-            <div class="grid grid-2" style="gap: 2rem;">
-                <div class="glass-card">
-                    <h3>GenAI Project Development</h3>
-                    <p style="color: var(--color-highlight); margin-bottom: 0.5rem;">KJ Somaiya Institute of Technology
-                    </p>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2025</p>
-                    <p>Completed advanced certification in Generative AI project development, focusing on building
-                        AI-powered applications using cutting-edge technologies and frameworks.</p>
+                <div class="skill-card">
+                    <div class="skill-icon-box" style="background-color: var(--bg-cyan);">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                            alt="Docker">
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">DevOps & Cloud</h4>
+                        <p class="skill-desc">Docker, Kubernetes, AWS, GCP, CI/CD</p>
+                    </div>
                 </div>
 
-                <div class="glass-card">
-                    <h3>International Paper Presentation</h3>
-                    <p style="color: var(--color-highlight); margin-bottom: 0.5rem;">IC-RTETM 2023</p>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2023</p>
-                    <p>Presented research paper at the International Conference on Recent Trends in Engineering,
-                        Technology and Management, showcasing innovative solutions in technology.</p>
+                <div class="skill-card">
+                    <div class="skill-icon-box" style="background-color: var(--bg-orange);">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">Version Control</h4>
+                        <p class="skill-desc">Git, GitHub, GitLab, Collaboration</p>
+                    </div>
                 </div>
 
-                <div class="glass-card">
-                    <h3>Capstone Project Presentation</h3>
-                    <p style="color: var(--color-highlight); margin-bottom: 0.5rem;">JIT Institute</p>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2023</p>
-                    <p>Successfully presented final year capstone project demonstrating comprehensive understanding
-                        of software development lifecycle and practical implementation skills.</p>
-                </div>
-
-                <div class="glass-card">
-                    <h3>Techno Brain State Level Project Competition</h3>
-                    <p style="color: var(--color-highlight); margin-bottom: 0.5rem;">Guru Gobind Singh Polytechnic</p>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2024</p>
-                    <p>Competed at state level in technical project competition, demonstrating innovation,
-                        technical expertise, and problem-solving capabilities.</p>
-                </div>
-
-                <div class="glass-card">
-                    <h3>International Paper Presentation</h3>
-                    <p style="color: var(--color-highlight); margin-bottom: 0.5rem;">Guru Gobind Singh Polytechnic</p>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2024</p>
-                    <p>Presented research findings at international academic conference, contributing to the
-                        global knowledge base in computer engineering and technology.</p>
-                </div>
-
-                <div class="glass-card">
-                    <h3>Internship Web Developer</h3>
-                    <p style="color: var(--color-highlight); margin-bottom: 0.5rem;">R3 Systems Pvt. Ltd.</p>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1rem;">📅 2023</p>
-                    <p>Successfully completed professional internship in web development, gaining industry
-                        experience and practical skills in modern web technologies.</p>
+                <div class="skill-card">
+                    <div class="skill-icon-box" style="background-color: var(--bg-red-dark);">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"
+                            alt="Raspberry Pi">
+                    </div>
+                    <div class="skill-info">
+                        <h4 class="skill-name">IoT & Hardware</h4>
+                        <p class="skill-desc">Raspberry Pi, Arduino, ESP32, Sensors</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -434,8 +451,10 @@
     <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title-large">Let's <span class="gradient-text-custom">Connect</span></h2>
+                <p class="section-subtitle">Have a project in mind? Let's work together</p>
             </div>
             <div class="contact-grid">
                 <div class="glass-card contact-item">
@@ -447,13 +466,7 @@
                 <div class="glass-card contact-item">
                     <div class="contact-icon">📱</div>
                     <p class="contact-label">Phone</p>
-                    <p class="contact-value">+91 9156161100</p>
-                </div>
-
-                <div class="glass-card contact-item">
-                    <div class="contact-icon">📍</div>
-                    <p class="contact-label">Location</p>
-                    <p class="contact-value">Mumbai, India</p>
+                    <a href="tel:+919156161100" class="contact-value">+91 9156161100</a>
                 </div>
 
                 <div class="glass-card contact-item">
@@ -462,6 +475,12 @@
                     <a href="https://www.linkedin.com/in/sanket-saraf08/" target="_blank" class="contact-value">Connect
                         with me</a>
                 </div>
+
+                <div class="glass-card contact-item">
+                    <div class="contact-icon">💻</div>
+                    <p class="contact-label">GitHub</p>
+                    <a href="https://github.com/SanketVerse" target="_blank" class="contact-value">@SanketVerse</a>
+                </div>
             </div>
         </div>
     </section>
@@ -469,7 +488,6 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">© 2024 Sanket Saraf. All rights reserved.</p>
             <p class="footer-text">Built with passion and innovation</p>
             <div class="social-links">
                 <a href="mailto:sanketsaraf08@gmail.com" class="social-link" aria-label="Email">📧</a>
