@@ -17,6 +17,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================
+    // DARK MODE TOGGLE
+    // ============================================
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', currentTheme);
+
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Add a subtle animation to the toggle button
+        themeToggle.style.transform = 'rotate(360deg) scale(1.1)';
+        setTimeout(() => {
+            themeToggle.style.transform = 'rotate(0deg) scale(1)';
+        }, 300);
+    }
+
+    // Event listener for theme toggle button
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // ============================================
     // CUSTOM CURSOR (Desktop Only)
     // ============================================
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
