@@ -6,6 +6,34 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ============================================
+    // LOADING SCREEN
+    // ============================================
+    const loadingScreen = document.getElementById('loadingScreen');
+    const loadingPercent = document.getElementById('loadingPercent');
+    let progress = 0;
+
+    // Animate progress bar (slower for better visibility)
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 3 + 2; // Slower increment (2-5% per step)
+        if (progress > 100) progress = 100;
+
+        loadingPercent.textContent = Math.floor(progress);
+
+        if (progress >= 100) {
+            clearInterval(progressInterval);
+            // Hide loading screen after completion with longer delay
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                // Remove from DOM after animation
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 500);
+            }, 800); // Increased delay to show 100% completion
+        }
+    }, 150); // Increased interval from 100ms to 150ms
+
+
+    // ============================================
     // GLOBAL VARIABLES
     // ============================================
     let mouseX = 0, mouseY = 0;

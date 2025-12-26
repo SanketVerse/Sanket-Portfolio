@@ -49,6 +49,57 @@
 </head>
 
 <body>
+    <!-- Techie Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-brackets">
+                    <span class="bracket-left">&lt;</span>
+                    <span class="logo-text">SV</span>
+                    <span class="bracket-right">/&gt;</span>
+                </div>
+            </div>
+            <h1 class="loading-title">
+                <span class="typing-text">Welcome to </span>
+                <span class="gradient-verse">SanketVerse</span>
+            </h1>
+            <div class="loading-subtitle">Initializing portfolio experience...</div>
+
+            <!-- Code Animation -->
+            <div class="code-animation">
+                <div class="code-line"><span class="code-comment">// Loading modules...</span></div>
+                <div class="code-line"><span class="code-keyword">import</span> { <span
+                        class="code-variable">creativity</span>, <span class="code-variable">innovation</span> } <span
+                        class="code-keyword">from</span> <span class="code-string">'./sanket'</span>;</div>
+                <div class="code-line"><span class="code-keyword">const</span> <span
+                        class="code-variable">portfolio</span> = <span class="code-keyword">new</span> <span
+                        class="code-function">Portfolio</span>();</div>
+                <div class="code-line"><span class="code-variable">portfolio</span>.<span
+                        class="code-function">initialize</span>();</div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="loadingPercent">0</span>%
+                </div>
+            </div>
+
+            <!-- Tech Icons -->
+            <div class="tech-particles">
+                <span class="particle">💻</span>
+                <span class="particle">🚀</span>
+                <span class="particle">⚡</span>
+                <span class="particle">🤖</span>
+                <span class="particle">🎨</span>
+                <span class="particle">☕</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -543,26 +594,26 @@
             <div class="contact-grid">
                 <div class="glass-card contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                    <p class="contact-label">Email</p>
+                    <p class="contact-label"><span class="label-symbol">📧</span>Email</p>
                     <a href="mailto:sanketsaraf08@gmail.com" class="contact-value">sanketsaraf08@gmail.com</a>
                 </div>
 
                 <div class="glass-card contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                    <p class="contact-label">Phone</p>
+                    <p class="contact-label"><span class="label-symbol">📱</span>Phone</p>
                     <a href="tel:+919156161100" class="contact-value">+91 9156161100</a>
                 </div>
 
                 <div class="glass-card contact-item">
                     <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
-                    <p class="contact-label">LinkedIn</p>
+                    <p class="contact-label"><span class="label-symbol">💼</span>LinkedIn</p>
                     <a href="https://www.linkedin.com/in/sanket-saraf08/" target="_blank" class="contact-value">Connect
                         with me</a>
                 </div>
 
                 <div class="glass-card contact-item">
                     <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
-                    <p class="contact-label">GitHub</p>
+                    <p class="contact-label"><span class="label-symbol">💻</span>GitHub</p>
                     <a href="https://github.com/SanketVerse" target="_blank" class="contact-value">@SanketVerse</a>
                 </div>
             </div>
