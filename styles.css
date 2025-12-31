@@ -2086,6 +2086,9 @@ a:hover {
     padding: var(--spacing-lg) 0;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    /* Scroll snap for better mobile UX */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
 }
 
 .photo-gallery-scroll::-webkit-scrollbar {
@@ -2113,6 +2116,9 @@ a:hover {
     transition: all var(--transition-base);
     cursor: pointer;
     flex-shrink: 0;
+    /* Scroll snap alignment */
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
 }
 
 .gallery-photo-card:hover {
@@ -2215,6 +2221,25 @@ a:hover {
 }
 
 /* ============================================
+   ABOUT SECTION CONTENT
+   ============================================ */
+.about-content {
+    display: flex;
+    gap: var(--spacing-3xl);
+    align-items: flex-start;
+    margin-top: var(--spacing-3xl);
+}
+
+.about-text-col {
+    flex: 1;
+}
+
+.about-image-col {
+    flex: 0 0 auto;
+    max-width: 500px;
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
@@ -2234,8 +2259,6 @@ a:hover {
         padding: 0 var(--spacing-lg);
     }
 
-
-
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2251,6 +2274,27 @@ a:hover {
     /* Adjust glass card padding for tablets */
     .glass-card {
         padding: var(--spacing-lg);
+    }
+
+    /* Projects grid for tablets - 1 column */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    /* Hero stats for tablets */
+    .hero-stats {
+        gap: var(--spacing-2xl);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* Skills grid for tablets */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
     }
 }
 
@@ -2341,6 +2385,7 @@ a:hover {
     .hero {
         min-height: 90vh;
         padding-top: 100px;
+        padding-bottom: var(--spacing-3xl);
     }
 
     .hero-content {
@@ -2354,12 +2399,36 @@ a:hover {
     .hero-title {
         font-size: var(--font-size-xl);
         min-height: 35px;
+        margin-bottom: var(--spacing-xl);
     }
 
     .hero-description {
         font-size: var(--font-size-base);
         max-width: 100%;
         padding: 0 var(--spacing-sm);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    /* Hero Stats - Stack vertically on mobile */
+    .hero-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-xl);
+        justify-content: space-around;
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .stat-item {
+        flex: 0 1 calc(50% - var(--spacing-xl));
+        min-width: 120px;
+    }
+
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+
+    .stat-label {
+        font-size: var(--font-size-xs);
     }
 
     .hero-buttons {
@@ -2367,6 +2436,8 @@ a:hover {
         align-items: stretch;
         gap: var(--spacing-md);
         padding: 0 var(--spacing-md);
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .btn {
@@ -2374,6 +2445,124 @@ a:hover {
         max-width: 100%;
         padding: var(--spacing-md) var(--spacing-lg);
         font-size: var(--font-size-base);
+    }
+
+    /* Scroll Indicator - Hide on mobile for space */
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* Projects Grid - Single column */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .card-visual-container {
+        height: 250px;
+    }
+
+    .project-title {
+        font-size: var(--font-size-xl);
+    }
+
+    /* About Section - Stack columns */
+    .about-content {
+        flex-direction: column-reverse;
+        gap: var(--spacing-2xl);
+    }
+
+    .about-text-col,
+    .about-image-col {
+        width: 100%;
+    }
+
+    .my-photo {
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .location-capsule {
+        justify-content: center;
+        margin: 0 auto var(--spacing-xl);
+    }
+
+    .about-name {
+        font-size: var(--font-size-3xl);
+        text-align: center;
+    }
+
+    .about-sub-heading {
+        font-size: var(--font-size-2xl);
+        text-align: center;
+    }
+
+    .about-desc {
+        font-size: var(--font-size-base);
+        text-align: left;
+    }
+
+    /* Skills Grid - Single column on mobile */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .skill-card {
+        padding: var(--spacing-lg);
+    }
+
+    .skill-icon-box {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+
+    .skill-name {
+        font-size: var(--font-size-base);
+    }
+
+    .skill-desc {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Education Cards */
+    .education-card {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+
+    .education-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .education-degree {
+        font-size: var(--font-size-lg);
+    }
+
+    .education-institution {
+        font-size: var(--font-size-base);
+    }
+
+    .education-description {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Gallery - Smaller cards on mobile */
+    .gallery-photo-card {
+        min-width: 180px;
+    }
+
+    .gallery-photo-card img {
+        height: 240px;
     }
 
     /* Glass Cards Mobile */
@@ -2405,7 +2594,46 @@ a:hover {
 
     .contact-value {
         font-size: var(--font-size-base);
-        word-break: break-all;
+        word-break: break-word;
+    }
+
+    /* Loading Screen Mobile */
+    .loading-content {
+        padding: var(--spacing-lg);
+    }
+
+    .logo-brackets {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .loading-title {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+    }
+
+    .code-animation {
+        padding: var(--spacing-md);
+        font-size: 0.75rem;
+    }
+
+    .tech-particles {
+        gap: var(--spacing-md);
+    }
+
+    .particle {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Section Headers Mobile */
+    .section-header {
+        margin-bottom: var(--spacing-3xl);
+    }
+
+    .section-title-large {
+        font-size: clamp(1.75rem, 6vw, 3rem);
+    }
+
+    .section-subtitle {
+        font-size: var(--font-size-base);
     }
 
     /* Footer Mobile */
@@ -2476,6 +2704,13 @@ a:hover {
     .hero {
         min-height: 85vh;
         padding-top: 80px;
+        padding-bottom: var(--spacing-2xl);
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: var(--spacing-xs) var(--spacing-md);
+        margin-bottom: var(--spacing-md);
     }
 
     .hero-greeting {
@@ -2490,15 +2725,38 @@ a:hover {
     .hero-title {
         font-size: var(--font-size-lg);
         min-height: 30px;
+        margin-bottom: var(--spacing-md);
     }
 
     .hero-description {
         font-size: var(--font-size-sm);
         margin-bottom: var(--spacing-lg);
+        padding: 0;
+    }
+
+    /* Hero stats - Full width on very small screens */
+    .hero-stats {
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .stat-item {
+        flex: 0 1 calc(50% - var(--spacing-md));
+        min-width: 100px;
+    }
+
+    .stat-number {
+        font-size: var(--font-size-2xl);
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        word-break: break-word;
     }
 
     .hero-buttons {
         gap: var(--spacing-sm);
+        padding: 0 var(--spacing-sm);
     }
 
     .btn {
@@ -2506,14 +2764,163 @@ a:hover {
         font-size: var(--font-size-sm);
     }
 
-    /* Section Titles Small Mobile */
-    .section-title h2 {
-        font-size: var(--font-size-3xl);
+    /* Section Headers Small Mobile */
+    .section-header {
+        margin-bottom: var(--spacing-2xl);
     }
 
-    .section-title::after {
-        width: 60px;
-        height: 3px;
+    .section-label {
+        font-size: 0.7rem;
+        padding: 4px var(--spacing-md);
+    }
+
+    .section-title-large {
+        font-size: clamp(1.5rem, 7vw, 2.5rem);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .section-subtitle {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Projects Small Mobile */
+    .projects-grid {
+        gap: var(--spacing-xl);
+    }
+
+    .project-card {
+        border-radius: var(--radius-2xl);
+    }
+
+    .card-header {
+        padding: var(--spacing-md);
+    }
+
+    .project-title {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .card-visual-container {
+        height: 220px;
+        margin: 0 var(--spacing-sm) var(--spacing-sm);
+        border-radius: var(--radius-xl);
+    }
+
+    .tags {
+        gap: var(--spacing-xs);
+    }
+
+    .tag {
+        font-size: 0.7rem;
+        padding: 3px var(--spacing-sm);
+    }
+
+    .view-btn {
+        font-size: var(--font-size-sm);
+    }
+
+    /* About Section Small Mobile */
+    .location-capsule {
+        padding: var(--spacing-xs) var(--spacing-md);
+        gap: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+    }
+
+    .location-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .about-name {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .about-sub-heading {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-sm);
+        margin-top: var(--spacing-lg);
+    }
+
+    .about-desc {
+        font-size: var(--font-size-sm);
+        line-height: 1.7;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .my-photo {
+        border-radius: 20px !important;
+        border-width: 12px !important;
+    }
+
+    /* Skills Small Mobile */
+    .skills-grid {
+        gap: var(--spacing-md);
+    }
+
+    .skill-card {
+        padding: var(--spacing-md);
+    }
+
+    .skill-icon-box {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+    }
+
+    .skill-name {
+        font-size: var(--font-size-sm);
+    }
+
+    .skill-desc {
+        font-size: 0.8rem;
+    }
+
+    /* Education Small Mobile */
+    .education-card {
+        padding: var(--spacing-md);
+    }
+
+    .education-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+
+    .education-period {
+        font-size: 0.7rem;
+    }
+
+    .education-degree {
+        font-size: var(--font-size-base);
+    }
+
+    .education-institution {
+        font-size: var(--font-size-sm);
+    }
+
+    .education-location {
+        font-size: var(--font-size-sm);
+    }
+
+    .education-description {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    .highlight-tag {
+        font-size: 0.7rem;
+        padding: 3px var(--spacing-sm);
+    }
+
+    /* Gallery Small Mobile */
+    .gallery-photo-card {
+        min-width: 160px;
+    }
+
+    .gallery-photo-card img {
+        height: 220px;
     }
 
     /* Glass Cards Small Mobile */
@@ -2578,6 +2985,10 @@ a:hover {
         margin-bottom: var(--spacing-sm);
     }
 
+    .label-symbol {
+        font-size: var(--font-size-2xl);
+    }
+
     .contact-label {
         font-size: var(--font-size-xs);
     }
@@ -2586,13 +2997,59 @@ a:hover {
         font-size: var(--font-size-sm);
     }
 
+    /* Loading Screen Small Mobile */
+    .loading-content {
+        padding: var(--spacing-md);
+    }
+
+    .logo-brackets {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+    }
+
+    .loading-title {
+        font-size: clamp(1rem, 6vw, 1.75rem);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .loading-subtitle {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .code-animation {
+        padding: var(--spacing-sm);
+        font-size: 0.7rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .progress-bar {
+        height: 6px;
+    }
+
+    .progress-text {
+        font-size: var(--font-size-base);
+    }
+
+    .tech-particles {
+        gap: var(--spacing-sm);
+    }
+
+    .particle {
+        font-size: var(--font-size-lg);
+    }
+
     /* Footer Small Mobile */
     .footer {
         padding: var(--spacing-lg) 0;
     }
 
-    .footer-text {
+    .footer-tagline {
         font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .footer-link {
+        font-size: 0.75rem;
     }
 
     .social-links {
