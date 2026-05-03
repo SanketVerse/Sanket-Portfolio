@@ -209,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     const typedTextElement = document.getElementById('typedText');
     const titles = [
-        'AI Engineer',
-        'Data Scientist',
-        'Full-Stack Developer',
+        'Data Science & AI Engineer',
+        'Project Developer',
+        'Published Researcher',
         'Problem Solver',
         'Tech Innovator'
     ];
@@ -273,6 +273,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const skillCards = document.querySelectorAll('.skill-card');
     skillCards.forEach(card => observer.observe(card));
+
+    const experienceCards = document.querySelectorAll('.experience-card');
+    experienceCards.forEach(card => observer.observe(card));
+
+    const awardCards = document.querySelectorAll('.award-card');
+    awardCards.forEach(card => observer.observe(card));
 
     // ============================================
     // SCROLL TO TOP BUTTON
