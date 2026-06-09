@@ -1,0 +1,402 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────
+   TAILWIND THEME TOKENS
+   ───────────────────────────────────────────── */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --font-sans:    'Inter', sans-serif;
+  --font-heading: 'Satoshi', sans-serif;
+  --font-display: 'Clash Display', sans-serif;
+  --font-serif:   'Cormorant Garamond', serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ─────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES — LIGHT BLUE-GREY & SLATE
+   ───────────────────────────────────────────── */
+:root {
+  /* Background — matches the soft blue-grey from the character image */
+  --bg-hero:          #E8EBF0;   /* soft blue-grey — same tone as image background */
+  --bg-nav:           rgba(232, 235, 240, 0.85); /* frosted same tone */
+  --bg-card:          rgba(255, 255, 255, 0.72); /* frosted white card */
+  --bg-card-border:   rgba(255, 255, 255, 0.9);
+
+  /* Accent — pulled from the laptop screen blue in the image */
+  --accent-primary:   #2D6BE4;   /* bright blue — laptop screen color */
+  --accent-secondary: #1A4FC4;   /* deeper blue for hover */
+  --accent-green:     #22C55E;   /* availability green dot */
+
+  /* Text */
+  --text-primary:     #0F172A;   /* near-black for headings */
+  --text-secondary:   #475569;   /* slate for body text */
+  --text-muted:       #94A3B8;   /* muted for labels */
+  --text-accent:      #2D6BE4;   /* blue for name highlight */
+
+  /* Shadows */
+  --shadow-card:      0 8px 32px rgba(45, 107, 228, 0.12);
+  --shadow-btn:       0 4px 20px rgba(45, 107, 228, 0.30);
+  --shadow-image:     0 20px 60px rgba(15, 23, 42, 0.10);
+
+  /* Theme mappings */
+  --background:       var(--bg-hero);
+  --foreground:       var(--text-primary);
+  --card:             var(--bg-card);
+  --border:           rgba(15, 23, 42, 0.08);
+  --muted:            #F1F4F9;
+  --muted-foreground: var(--text-secondary);
+  --accent:           var(--accent-primary);
+}
+
+.dark {
+  --background:       var(--bg-hero);
+  --foreground:       var(--text-primary);
+  --card:             var(--bg-card);
+  --border:           rgba(15, 23, 42, 0.08);
+  --muted:            #F1F4F9;
+  --muted-foreground: var(--text-secondary);
+  --accent:           var(--accent-primary);
+}
+
+/* ─────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-hero);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'Clash Display', sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Satoshi', sans-serif;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+p, li { font-family: 'Inter', sans-serif; color: var(--text-secondary); }
+code, pre, kbd { font-family: 'JetBrains Mono', monospace; }
+a { color: var(--accent-primary); }
+
+::selection { background: rgba(45, 107, 228, 0.15); color: var(--accent-primary); }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-hero); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+}
+
+nav a, .nav-link {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+input, textarea, select {
+  background: var(--bg-card);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: var(--text-primary);
+}
+input:focus, textarea:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+  box-shadow: 0 0 40px rgba(45, 107, 228, 0.08);
+}
+input::placeholder, textarea::placeholder { color: var(--text-muted); }
+
+footer {
+  background: #D5D8E2;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  color: var(--text-secondary);
+}
+
+/* ─────────────────────────────────────────────
+   TAILWIND UTILITIES
+   ───────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient, .gradient-text {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--bg-card-border);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECTS — FULL-SCREEN STICKY STACK
+   ═══════════════════════════════════════════════ */
+
+/* Thin cyan→violet progress bar pinned to very top */
+.projects-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Section wrapper — no padding, full bleed */
+#projects-sticky {
+  position: relative;
+  background: var(--bg-hero);
+}
+
+/* ── Container: 1 viewport per card ── */
+.cards-wrapper {
+  position: relative;
+  height: calc(5 * 100vh);   /* 5 cards × 100vh = 500vh total scroll room */
+}
+
+/* ── Each card fills the entire screen ── */
+.project-card {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transform-origin: top center;
+  will-change: transform;
+  background: var(--bg-hero);
+}
+
+/* ── Full-bleed background image container ── */
+.card-bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ── Gradient overlay: heavy left for text, lighter right for image ── */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right,
+      rgba(232, 235, 240, 0.98)  0%,
+      rgba(232, 235, 240, 0.92) 40%,
+      rgba(232, 235, 240, 0.25) 100%),
+    linear-gradient(to bottom,
+      rgba(232, 235, 240, 0.55)  0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(232, 235, 240, 0.75) 100%);
+}
+
+/* ── Inner layout: left info | right image space ── */
+.card-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+/* ── LEFT: all the project info ── */
+.card-left {
+  width: 46%;
+  max-width: 680px;
+  padding: 0 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  flex-shrink: 0;
+}
+
+/* ── RIGHT: background image fills this zone (no content) ── */
+.card-right {
+  flex: 1;
+}
+
+/* ── Ghost number watermark bottom-right ── */
+.card-number {
+  position: absolute;
+  bottom: 32px;
+  right: 48px;
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(130px, 18vw, 240px);
+  color: rgba(15, 23, 42, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  letter-spacing: -0.03em;
+}
+
+/* ── Top index label e.g. "01 / 05" ── */
+.card-index {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(15, 23, 42, 0.45);
+  text-transform: uppercase;
+}
+
+/* ── Tech tag pills ── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  border: 1px solid rgba(45, 107, 228, 0.22);
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(45, 107, 228, 0.05);
+}
+
+/* ── Big title ── */
+.card-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(60px, 8vw, 108px);
+  color: var(--text-primary);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ── Description ── */
+.card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── Cyan metric strip ── */
+.card-metric {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--accent-primary);
+  background: rgba(45, 107, 228, 0.05);
+  border-left: 2px solid var(--accent-primary);
+  padding: 10px 16px;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ── Action links ── */
+.card-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.link-primary {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.65);
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.link-primary:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 24px rgba(45, 107, 228, 0.12);
+}
+
+.link-secondary {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: rgba(15, 23, 42, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.link-secondary:hover { color: var(--text-secondary); }
+
+/* ── Bottom-left scroll hint bar ── */
+.card-footer {
+  position: absolute;
+  bottom: 36px;
+  left: 64px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.card-footer-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.12);
+}
+.card-footer-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(15, 23, 42, 0.35);
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .card-left {
+    width: 100%;
+    max-width: none;
+    padding: 80px 28px 120px;
+    justify-content: flex-end;
+  }
+  .card-right { display: none; }
+  .card-overlay {
+    background: linear-gradient(to bottom,
+      rgba(232, 235, 240, 0.6)  0%,
+      rgba(232, 235, 240, 0.92) 50%,
+      rgba(232, 235, 240, 0.98) 100%);
+  }
+  .card-title  { font-size: 56px; }
+  .card-number { font-size: 120px; right: 16px; bottom: 16px; }
+  .card-footer { left: 28px; bottom: 28px; }
+}

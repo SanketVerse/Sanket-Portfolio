@@ -1,6 +1,6 @@
 # Dependencies
 node_modules/
-package-lock.json
+/package-lock.json
 
 # Environment variables
 .env
@@ -26,3 +26,8 @@ build/
 # Temporary files
 *.tmp
 .cache/
+
+# Loose root files
+/image.png
+/logo .png
+/Sanket_Saraf_DataScience_CV.pdf
