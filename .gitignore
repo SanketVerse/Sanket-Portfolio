@@ -53,4 +53,5 @@ next-env.d.ts
 # Loose root files
 /image.png
 /logo .png
+/image copy.png
 /Sanket_Saraf_DataScience_CV.pdf

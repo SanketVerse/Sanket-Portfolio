@@ -109,7 +109,7 @@ export function Navbar() {
           className="nav-logo-link"
         >
           <Image
-            src="/images/logo-nav.png"
+            src="/images/srs-logo-new-cropped.png"
             alt="SRS Logo"
             width={95}
             height={30}
